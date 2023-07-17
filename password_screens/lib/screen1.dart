@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:password_screens/otp_screen.dart';
 
 class FirstScreen extends StatefulWidget {
   const FirstScreen({Key? key}) : super(key: key);
@@ -20,7 +21,7 @@ class _FirstScreenState extends State<FirstScreen> {
             Image.asset('images/illustration.png',
               height: 200,
               width: 200,),
-            SizedBox(height: 35,),
+            SizedBox(height: 40,),
             Text('Forgot Password',
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold,),
             ),
@@ -38,13 +39,15 @@ class _FirstScreenState extends State<FirstScreen> {
                 keyboardType: TextInputType.emailAddress,
               ),
             ),
-            SizedBox(height: 70,),
+            SizedBox(height: 85,),
             Text('Reset with SMS',
               style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold, color: Colors.blue,),
             ),
             SizedBox(height: 16,),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, '/otp',);
+              },
               style: ElevatedButton.styleFrom(
                 padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 100),
               ),

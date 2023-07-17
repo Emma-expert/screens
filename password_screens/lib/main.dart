@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:password_screens/screen1.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:password_screens/otp_screen.dart';
 
 Future<void> main() async
 {
@@ -20,7 +20,11 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: FirstScreen(),
+       initialRoute: '/',
+       routes: {
+        '/': (context) => FirstScreen(),
+        '/otp': (context) => OtpScreen(),
+      },
     );
   }
 }
