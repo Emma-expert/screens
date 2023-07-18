@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:password_screens/change_password.dart';
+import 'package:flutter/services.dart';
+import 'package:pinput/pinput.dart';
 
 class OtpScreen extends StatelessWidget {
   const OtpScreen({super.key});
@@ -37,16 +39,28 @@ class OtpScreen extends StatelessWidget {
                 fontSize: 15, fontWeight: FontWeight.normal),
             ),
             SizedBox(height: 40),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                OtpDigitBox(),
-                OtpDigitBox(),
-                OtpDigitBox(),
-                OtpDigitBox(),
-                OtpDigitBox(),
-                OtpDigitBox(),
-              ],
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              child: SizedBox(
+                child: Pinput(
+                  length: 6,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  keyboardType: TextInputType.number,
+                  inputFormatters: [
+                    FilteringTextInputFormatter.digitsOnly,
+                  ],
+                  defaultPinTheme: PinTheme(
+                    height: 56,
+                    width: 56,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.zero,
+                      border: Border.all(
+                        color: Colors.black,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
             ),
             SizedBox(height: 85,),
             Text('Resend Code',
@@ -76,6 +90,8 @@ class OtpScreen extends StatelessWidget {
 }
 
 class OtpDigitBox extends StatelessWidget {
+  const OtpDigitBox({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -86,9 +102,17 @@ class OtpDigitBox extends StatelessWidget {
         border: Border.all(color: Colors.grey),
         borderRadius: BorderRadius.circular(8),
       ),
-      child: TextField(
+      child: TextFormField(
+        onChanged: (value) {
+          if (value.length == 1){
+            FocusScope.of(context).nextFocus();
+          }
+        },
         keyboardType: TextInputType.number,
-        maxLength: 1,
+        inputFormatters: [
+          LengthLimitingTextInputFormatter(1),
+          FilteringTextInputFormatter.digitsOnly,
+        ],
         textAlign: TextAlign.center,
         style: TextStyle(fontSize: 24),
         decoration: InputDecoration(
