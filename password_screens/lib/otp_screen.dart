@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:password_screens/change_password.dart';
 
 class OtpScreen extends StatelessWidget {
   const OtpScreen({super.key});
@@ -53,7 +54,9 @@ class OtpScreen extends StatelessWidget {
             ),
             SizedBox(height: 16),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, '/change');
+              },
               style: ElevatedButton.styleFrom(
                 padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 100),
               ),

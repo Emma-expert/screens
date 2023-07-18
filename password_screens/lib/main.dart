@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:password_screens/screen1.dart';
 import 'package:password_screens/otp_screen.dart';
+import 'package:password_screens/change_password.dart';
+import 'package:password_screens/verified_screen.dart';
 
 Future<void> main() async
 {
@@ -24,6 +26,8 @@ class _MyAppState extends State<MyApp> {
        routes: {
         '/': (context) => FirstScreen(),
         '/otp': (context) => OtpScreen(),
+         '/change': (context) => NewPasswordScreen(),
+         '/verify': (context) => VerifiedScreen(),
       },
     );
   }
