@@ -28,7 +28,6 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('Flash Info'),
           content: Text(message),
           actions: [
             ElevatedButton(
@@ -48,7 +47,6 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('Flash Info'),
           content: Text(message),
           actions: [
             ElevatedButton(

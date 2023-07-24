@@ -12,21 +12,22 @@ class VerifiedScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset('images/checkmark.png',
-            width: 110,height: 110,),
+            width: 147,
+              height: 147,),
             SizedBox(height: 20),
-            Text(
+            const Text(
               'Reset Successful',
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 80,),
+            const SizedBox(height: 80,),
             ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
                 padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 100),
               ),
-              child: Text('Login',
+              child: const Text('Login',
                 style: TextStyle(
-                  fontSize: 15,
+                  fontSize: 16,
                   fontWeight: FontWeight.normal,
                   color: Colors.white,
                 ),

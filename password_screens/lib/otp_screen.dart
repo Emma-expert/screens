@@ -25,8 +25,8 @@ class OtpScreen extends StatelessWidget {
           children: [
             Image.asset(
               'images/mailbox.png',
-              width: 200,
-              height: 200,
+              width: 206,
+              height: 206,
             ),
             SizedBox(height: 40),
             Text(
@@ -53,7 +53,7 @@ class OtpScreen extends StatelessWidget {
                     height: 56,
                     width: 56,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.zero,
+                      borderRadius: BorderRadius.circular(15),
                       border: Border.all(
                         color: Colors.black,
                       ),
@@ -89,37 +89,4 @@ class OtpScreen extends StatelessWidget {
   }
 }
 
-class OtpDigitBox extends StatelessWidget {
-  const OtpDigitBox({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 50,
-      height: 50,
-      margin: EdgeInsets.symmetric(horizontal: 4),
-      decoration: BoxDecoration(
-        border: Border.all(color: Colors.grey),
-        borderRadius: BorderRadius.circular(8),
-      ),
-      child: TextFormField(
-        onChanged: (value) {
-          if (value.length == 1){
-            FocusScope.of(context).nextFocus();
-          }
-        },
-        keyboardType: TextInputType.number,
-        inputFormatters: [
-          LengthLimitingTextInputFormatter(1),
-          FilteringTextInputFormatter.digitsOnly,
-        ],
-        textAlign: TextAlign.center,
-        style: TextStyle(fontSize: 24),
-        decoration: InputDecoration(
-          border: InputBorder.none,
-          counterText: '',
-        ),
-      ),
-    );
-  }
-}

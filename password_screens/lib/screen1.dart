@@ -14,13 +14,23 @@ class _FirstScreenState extends State<FirstScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        leading: IconButton(
+          color: Colors.black,
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+      ),
+      body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset('images/illustration.png',
-              height: 200,
-              width: 200,),
+              height: 202.52,
+              width: 202.52,),
             SizedBox(height: 40,),
             Text('Forgot Password',
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold,),
